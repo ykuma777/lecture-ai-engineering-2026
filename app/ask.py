@@ -12,6 +12,7 @@
 """
 
 import argparse
+import time
 
 from google import genai
 from google.genai import errors
@@ -34,7 +35,10 @@ def print_token_usage(response: GenerateContentResponse) -> None:
 
 def ask(question: str) -> str:
     client = genai.Client(api_key=get_api_key())
+    start = time.perf_counter()
     response = client.models.generate_content(model=MODEL, contents=question)
+    elapsed = time.perf_counter() - start
+    print(f"[API応答時間] {elapsed:.3f} 秒")
     print_token_usage(response)
     return response.text
 
@@ -51,7 +55,10 @@ def chat() -> None:
         if question.lower() in {"exit", "quit"}:
             return
 
+        start = time.perf_counter()
         response = chat_session.send_message(question)
+        elapsed = time.perf_counter() - start
+        print(f"[API応答時間] {elapsed:.3f} 秒")
         print_token_usage(response)
         print(response.text)
 
