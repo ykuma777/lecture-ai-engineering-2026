@@ -1,0 +1,174 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 3,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "warmup_steps": 6,
+    "max_seq_len": 512,
+    "max_new_tokens": 160,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "source": {
+    "repository": "ykuma777/lecture-ai-engineering-2026",
+    "ref": "lec02",
+    "glossary_blob_sha": "ab979596e101ed442db4dc8bcfb9b478dd1a3d43",
+    "dataset_script_blob_sha": "7e53cfc38f0b70f0141b6f98eab18a94c16a2645",
+    "search_tools_blob_sha": "35344270b5859eaecbcd9511add8d11f1bb0fb76"
+  },
+  "input_jsonl_sha256": "af6ac820e0331d8d9af376e3b4cccff1b31f2f0f8bb462839752e3282bbd1081",
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "dataset": {
+    "terms": 58,
+    "training_records": 116,
+    "evaluation_questions": 15
+  },
+  "training": {
+    "seconds": 163.0,
+    "steps": 45,
+    "final_logged_loss": 0.8003817558288574,
+    "log_history": [
+      {
+        "loss": 3.209525299072266,
+        "grad_norm": 4.21338415145874,
+        "learning_rate": 0.00013333333333333334,
+        "entropy": 2.810807204246521,
+        "num_tokens": 5231.0,
+        "mean_token_accuracy": 0.4306702673435211,
+        "epoch": 0.3448275862068966,
+        "step": 5
+      },
+      {
+        "loss": 1.907821273803711,
+        "grad_norm": 2.5323798656463623,
+        "learning_rate": 0.0001970941817426052,
+        "entropy": 2.213456904888153,
+        "num_tokens": 10347.0,
+        "mean_token_accuracy": 0.6504229307174683,
+        "epoch": 0.6896551724137931,
+        "step": 10
+      },
+      {
+        "loss": 1.5361976623535156,
+        "grad_norm": 2.971540689468384,
+        "learning_rate": 0.00017994427634035015,
+        "entropy": 1.5528127749760945,
+        "num_tokens": 14916.0,
+        "mean_token_accuracy": 0.7229647636413574,
+        "epoch": 1.0,
+        "step": 15
+      },
+      {
+        "loss": 1.237267303466797,
+        "grad_norm": 1.7455615997314453,
+        "learning_rate": 0.00015000000000000001,
+        "entropy": 1.4627156496047973,
+        "num_tokens": 20075.0,
+        "mean_token_accuracy": 0.7589737236499786,
+        "epoch": 1.3448275862068966,
+        "step": 20
+      },
+      {
+        "loss": 1.1262227058410645,
+        "grad_norm": 1.8201453685760498,
+        "learning_rate": 0.0001120536680255323,
+        "entropy": 1.2904893398284911,
+        "num_tokens": 25170.0,
+        "mean_token_accuracy": 0.780532443523407,
+        "epoch": 1.6896551724137931,
+        "step": 25
+      },
+      {
+        "loss": 1.1055190086364746,
+        "grad_norm": 2.593599319458008,
+        "learning_rate": 7.217825360835473e-05,
+        "entropy": 1.3104730579588149,
+        "num_tokens": 29832.0,
+        "mean_token_accuracy": 0.7781359023518033,
+        "epoch": 2.0,
+        "step": 30
+      },
+      {
+        "loss": 0.8077664375305176,
+        "grad_norm": 1.8487356901168823,
+        "learning_rate": 3.675546244046228e-05,
+        "entropy": 1.1186105012893677,
+        "num_tokens": 34858.0,
+        "mean_token_accuracy": 0.836249053478241,
+        "epoch": 2.344827586206897,
+        "step": 35
+      },
+      {
+        "loss": 0.8743144989013671,
+        "grad_norm": 1.9230082035064697,
+        "learning_rate": 1.1454397434679021e-05,
+        "entropy": 1.1798555850982666,
+        "num_tokens": 40088.0,
+        "mean_token_accuracy": 0.8183445632457733,
+        "epoch": 2.689655172413793,
+        "step": 40
+      },
+      {
+        "loss": 0.8003817558288574,
+        "grad_norm": 2.7236428260803223,
+        "learning_rate": 3.2426918657900704e-07,
+        "entropy": 1.1013393534554377,
+        "num_tokens": 44748.0,
+        "mean_token_accuracy": 0.8362635241614448,
+        "epoch": 3.0,
+        "step": 45
+      },
+      {
+        "train_runtime": 162.6165,
+        "train_samples_per_second": 2.14,
+        "train_steps_per_second": 0.277,
+        "total_flos": 153009737405952.0,
+        "train_loss": 1.4005573272705079,
+        "epoch": 3.0,
+        "step": 45
+      }
+    ]
+  },
+  "before": {
+    "label": "before",
+    "n": 15,
+    "seconds": 102.6,
+    "direct_proxy_rate": 0.0,
+    "rephrased_proxy_rate": 0.2,
+    "out_of_glossary_proxy_rate": 0.0,
+    "all_proxy_rate": 0.06666666666666667,
+    "known_review_rate": 0.0
+  },
+  "after": {
+    "label": "after",
+    "n": 15,
+    "seconds": 49.5,
+    "direct_proxy_rate": 0.6,
+    "rephrased_proxy_rate": 0.0,
+    "out_of_glossary_proxy_rate": 0.0,
+    "all_proxy_rate": 0.2,
+    "known_review_rate": 0.0
+  },
+  "base_with_search": {
+    "label": "base_with_search",
+    "n": 15,
+    "seconds": 45.1,
+    "direct_proxy_rate": 0.8,
+    "rephrased_proxy_rate": 1.0,
+    "out_of_glossary_proxy_rate": 0.8,
+    "all_proxy_rate": 0.8666666666666667,
+    "known_review_rate": 0.0
+  },
+  "metric_note": "重要語句と確認要求語の検出による代理指標。意味的な正しさは原文確認が必要。",
+  "executed_training_myself": true
+}
