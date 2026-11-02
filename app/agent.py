@@ -16,7 +16,7 @@ import inspect
 import json
 from pathlib import Path
 
-from pydantic_ai import Agent
+from pydantic_ai import Agent, DeferredToolRequests, DeferredToolResults
 from pydantic_ai.exceptions import ModelHTTPError
 from fastmcp import Client
 from pydantic_ai.mcp import MCPToolset, StdioTransport
@@ -35,12 +35,21 @@ INSTRUCTIONS = """\
 - 用語集に見つからないことは、推測で断定せず「用語集にはない」と伝える。
 - 回答の最後に、関係する回（第N回）を示す。
 - 宿題の答えそのものは書かず、考え方のヒントで導く。
+- 学習内容の保存を依頼されたら save_learning_log を使う。
 """
 
 # モデルは実行時に渡す（テストではAPIを呼ばない TestModel に差し替えるため）
-agent = Agent(instructions=INSTRUCTIONS)
+agent = Agent(
+    instructions=INSTRUCTIONS,
+    output_type=[str, DeferredToolRequests],
+)
 agent.tool_plain(tools.search_glossary)
 agent.tool_plain(tools.get_lecture_summary)
+agent.tool_plain(tools.make_quiz)
+agent.tool_plain(
+    tools.save_learning_log,
+    requires_approval=True,
+)
 
 # TODO(第3回 演習): tools.py に make_quiz を作り、ここで登録しよう
 
@@ -128,14 +137,50 @@ def main() -> None:
     if args.mcp:
         print("[tools] MCP サーバー（app/mcp_servers.json）")
     try:
-        result = target.run_sync(args.question, model=build_model())
+        model = build_model()
+        result = target.run_sync(args.question, model=model)
+
+        while isinstance(result.output, DeferredToolRequests):
+            pending = result.output
+
+            if pending.calls or not pending.approvals:
+                print("このCLIでは処理できない保留要求があります。")
+                raise SystemExit(1)
+
+            approvals = {}
+
+            for call in pending.approvals:
+                print(f"\n[承認待ち] {call.tool_name}")
+                print(json.dumps(
+                    call.args_as_dict(),
+                    ensure_ascii=False,
+                    indent=2,
+                ))
+
+                answer = input(
+                    "このツールの実行を承認しますか？ [y/N]: "
+                ).strip().lower()
+
+                approved = answer == "y"
+                approvals[call.tool_call_id] = approved
+
+                print("[approval] 承認" if approved else "[approval] 拒否")
+
+            result = target.run_sync(
+                message_history=result.all_messages(),
+                deferred_tool_results=DeferredToolResults(
+                    approvals=approvals
+                ),
+                model=model,
+            )
+
     except ModelHTTPError as e:
         print(api_error_message(e.status_code, str(e.body)[:200]))
         raise SystemExit(1)
+
     print(result.output)
     if args.trace:
         print_trace(result)
-
 
 if __name__ == "__main__":
     main()

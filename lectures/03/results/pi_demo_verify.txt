@@ -1,0 +1,6 @@
+=== 作成ファイル ===
+-rw-r--rw- 1 vscode vscode 25 Nov  2 17:02 /tmp/aie2026_pi_lab/pi_demo.py
+=== ファイル内容 ===
+print("Pi tool test OK")
+=== Python実行結果 ===
+Pi tool test OK
