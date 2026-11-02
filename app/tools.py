@@ -3,10 +3,12 @@
 ここに書いた関数の docstring と型ヒントが、そのままモデルへの「ツールの説明文」になる。
 説明文を書き換えると、モデルがツールを使うかどうか・どんな引数で呼ぶかが変わる。
 """
-
 import json
+import random
 from functools import cache
 from pathlib import Path
+from datetime import datetime, timezone
+from uuid import uuid4
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 MAX_RESULTS = 3
@@ -77,3 +79,52 @@ def get_lecture_summary(lecture: int) -> str:
         available = sorted(p.stem for p in (DATA_DIR / "lectures").glob("*.md"))
         return f"第{lecture}回の要点はまだありません。用意されている回: {', '.join(available)}"
     return path.read_text(encoding="utf-8")
+
+def make_quiz(lecture: int) -> str:
+    """指定した回の用語から1つを選び、確認問題と答えを返す。
+
+    「第2回の確認問題を出して」のように、
+    復習用の問題を求められたときに使う。
+    """
+    terms = [
+        entry for entry in load_glossary()
+        if entry["lecture"] == lecture
+    ]
+
+    if not terms:
+        return f"第{lecture}回の用語がないため、確認問題を作成できません。"
+
+    selected = random.choice(terms)
+
+    return json.dumps(
+        {
+            "question": f"「{selected['term']}」の意味は？",
+            "answer": selected["definition"],
+        },
+        ensure_ascii=False,
+    )
+
+def save_learning_log(topic: str, content: str) -> str:
+    """学習した内容をMarkdownファイルとして保存する。
+
+    ユーザーが学習内容や復習メモを保存するよう依頼したときに使う。
+    topicは学習テーマ、contentは保存する学習内容。
+    保存前にユーザーの承認が必要。
+    """
+    if not topic.strip() or not content.strip():
+        return "学習テーマと内容は空にできません。"
+
+    root = Path(__file__).resolve().parent.parent
+    log_dir = root / "learning_log"
+    log_dir.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now(timezone.utc).strftime(
+        "%Y%m%dT%H%M%S%fZ"
+    )
+    filename = f"{timestamp}_{uuid4().hex[:8]}.md"
+    path = log_dir / filename
+
+    text = f"# {topic.strip()}\n\n{content.strip()}\n"
+    path.write_text(text, encoding="utf-8")
+
+    return f"保存しました: {path.relative_to(root)}"
