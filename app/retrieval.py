@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import os
 import math
 import re
 import sqlite3
@@ -124,6 +125,41 @@ def open_index(path: Path):
         db.close()
 
 
+
+def expand_neighbor_pages(hits: list[dict]) -> list[dict]:
+    """検索ヒットに同一資料の前後1ページを追加する。"""
+
+    pages = load_pages()
+    page_map = {
+        (p["document_id"], p["page"]): p
+        for p in pages
+    }
+
+    results = list(hits)
+    seen = {p["page_id"] for p in hits}
+
+    for hit in hits:
+        document_id = hit["document_id"]
+
+        for offset in (-1, 1):
+            key = (document_id, hit["page"] + offset)
+            neighbor = page_map.get(key)
+
+            if neighbor is None:
+                continue
+
+            if neighbor["page_id"] in seen:
+                continue
+
+            seen.add(neighbor["page_id"])
+            results.append({
+                **neighbor,
+                "distance": None
+            })
+
+    return results
+
+
 def search(query: str) -> list[dict]:
     """質問を埋め込み、近いページを最大RAG_TOP_K件返す。"""
     if not isinstance(query, str) or not query.strip():
@@ -135,7 +171,12 @@ def search(query: str) -> list[dict]:
                    vec_distance_cosine(embedding, ?) AS distance
             FROM chunks ORDER BY distance, page_id LIMIT ?
         """, (sqlite_vec.serialize_float32(vector), RAG_TOP_K))
-        return [dict(row) for row in rows]
+        hits = [dict(row) for row in rows]
+
+        if os.getenv("AIE_RAG_NEIGHBORS", "0") == "1":
+            return expand_neighbor_pages(hits)
+
+        return hits
 
 
 def search_graph(query: str) -> dict:
@@ -181,6 +222,43 @@ def search_graph(query: str) -> dict:
                 if neighbor not in candidates or priority < candidates[neighbor][0]:
                     candidates[neighbor] = (priority, candidate)
     expanded = [candidate for _, candidate in sorted(candidates.values())]
+
+    # 発展課題：質問との関連性でGraphの追加候補を絞り込む
+    if os.getenv("AIE_GRAPH_FILTER", "0") == "1":
+        # 空白で分割し、講義回数などの資料指定を除外する
+        terms = [
+            word for word in query.strip().split()
+            if len(word) >= 2
+            and not (
+                word.startswith("第")
+                and word.endswith("回")
+                and word[1:-1].isdigit()
+            )
+        ]
+
+        def relevance_score(page: dict) -> int:
+            title = page["title"]
+            content = page["content"]
+            return sum(
+                (3 if term in title else 0)
+                + (1 if term in content else 0)
+                for term in terms
+            )
+
+        # 無関係な候補を除き、スコアの高い順に並べ替える
+        expanded = [
+            page for page in expanded
+            if relevance_score(page) > 0
+        ]
+        expanded.sort(
+            key=lambda page: (
+                -relevance_score(page),
+                page["hops"],
+                page["page_id"],
+            )
+        )
+        expanded = expanded[:3]
+
     return {"seeds": results, "expanded": expanded[:max(0, GRAPH_MAX_RESULTS - len(results))],
             "max_hops": GRAPH_HOPS}
 
