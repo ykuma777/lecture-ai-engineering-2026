@@ -1,0 +1,140 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.18.0",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu130"
+  },
+  "method": "LoRA（量子化なし）",
+  "dataset": {
+    "name": "架空の地理データ受け渡しFAQ",
+    "fictional": true,
+    "train": 14,
+    "valid": 7,
+    "test": 21
+  },
+  "training": {
+    "seconds": 195.4,
+    "steps": 40,
+    "final_logged_loss": 0.01647767424583435,
+    "loss_definition": "最後のログ区間のTraining Loss。検証損失ではない。",
+    "log_history": [
+      {
+        "loss": 1.8205062866210937,
+        "grad_norm": 4.004236698150635,
+        "learning_rate": 0.00019618256431728194,
+        "entropy": 1.9552654325962067,
+        "num_tokens": 15020.0,
+        "mean_token_accuracy": 0.6556085467338562,
+        "epoch": 5.0,
+        "step": 10
+      },
+      {
+        "loss": 0.09635517597198487,
+        "grad_norm": 0.5286264419555664,
+        "learning_rate": 0.00013612416661871533,
+        "entropy": 0.2079846192151308,
+        "num_tokens": 30040.0,
+        "mean_token_accuracy": 0.9827270358800888,
+        "epoch": 10.0,
+        "step": 20
+      },
+      {
+        "loss": 0.022396267950534822,
+        "grad_norm": 0.2835198640823364,
+        "learning_rate": 4.735678371226441e-05,
+        "entropy": 0.04841384254395962,
+        "num_tokens": 45060.0,
+        "mean_token_accuracy": 0.9947292119264602,
+        "epoch": 15.0,
+        "step": 30
+      },
+      {
+        "loss": 0.01647767424583435,
+        "grad_norm": 0.2048829048871994,
+        "learning_rate": 4.2658237049655323e-07,
+        "entropy": 0.035990468226373196,
+        "num_tokens": 60080.0,
+        "mean_token_accuracy": 0.9951982527971268,
+        "epoch": 20.0,
+        "step": 40
+      },
+      {
+        "train_runtime": 194.9141,
+        "train_samples_per_second": 1.437,
+        "train_steps_per_second": 0.205,
+        "total_flos": 183461544763392.0,
+        "train_loss": 0.48893385119736194,
+        "epoch": 20.0,
+        "step": 40
+      }
+    ]
+  },
+  "before": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.0,
+    "content_rate": 0.0,
+    "both_rate": 0.0,
+    "seconds": 16.2
+  },
+  "after": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.9523809523809523,
+    "both_rate": 0.9523809523809523,
+    "seconds": 32.7
+  },
+  "regressed": [],
+  "knowledge": [
+    {
+      "質問": "この地理データの最終提出期限を教えてください",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"確認が必要\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "このプロジェクトの最終検査の責任者は誰ですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"プロジェクトの最終検査の責任者は未指定されています。\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "次にデータを更新する日付を教えてください",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"2024-01-15\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "使用する座標系は何ですか",
+      "FAQ にある": true,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"EPSG:6677\"}",
+      "学習後の分類": "asserted",
+      "学習後の出力": "{\"answer\": \"使用する座標系は EPSG:6677 です。\", \"needs_review\": false}"
+    }
+  ],
+  "executed_training_myself": true
+}

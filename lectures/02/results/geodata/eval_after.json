@@ -1,0 +1,201 @@
+{
+  "summary": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.9523809523809523,
+    "both_rate": 0.9523809523809523,
+    "seconds": 32.7
+  },
+  "rows": [
+    {
+      "question": "採用するEPSGコードは何ですか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": false,
+      "both_ok": false,
+      "gold_needs_review": false
+    },
+    {
+      "question": "このプロジェクトで使う座標参照系のコードを教えてください",
+      "raw": "{\"answer\": \"使用する座標系は EPSG:6677 です。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "作業用データのCRSは何にそろえますか",
+      "raw": "{\"answer\": \"使用する座標系は EPSG:6677 です。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "ベクターデータは何形式にすればよいですか",
+      "raw": "{\"answer\": \"ベクターデータは GeoPackage（.gpkg）形式で提出します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "ベクターの提出に指定されている拡張子と形式名は何ですか",
+      "raw": "{\"answer\": \"ベクターデータは GeoPackage（.gpkg）形式で提出します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "完成したベクターデータはどの形式で渡しますか",
+      "raw": "{\"answer\": \"ベクターデータは GeoPackage（.gpkg）形式で提出します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "ファイル名の書式を教えてください",
+      "raw": "{\"answer\": \"ファイル名は 地域名_YYYYMMDD.gpkg とします。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "成果ファイルの名称はどんなパターンにしますか",
+      "raw": "{\"answer\": \"ファイル名は 地域名_YYYYMMDD.gpkg とします。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "地域名と日付を使うファイル名の規則を教えてください",
+      "raw": "{\"answer\": \"ファイル名は 地域名_YYYYMMDD.gpkg とします。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "完成品を置くフォルダー名は何ですか",
+      "raw": "{\"answer\": \"完成データは deliverables フォルダーに保存します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "成果データを格納するフォルダー名を教えてください",
+      "raw": "{\"answer\": \"完成データは deliverables フォルダーに保存します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "完成したファイルの保存場所はどこですか",
+      "raw": "{\"answer\": \"完成データは deliverables フォルダーに保存します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "提出する前の確認事項は何ですか",
+      "raw": "{\"answer\": \"提出前に件数・座標系・重複の有無を確認します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "納品直前に点検すべき三つの内容を教えてください",
+      "raw": "{\"answer\": \"提出前に件数・座標系・重複の有無を確認します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "成果データのチェックでは何を見る必要がありますか",
+      "raw": "{\"answer\": \"提出前に件数・座標系・重複の有無を確認します。\", \"needs_review\": false}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": false
+    },
+    {
+      "question": "データの更新頻度はどのくらいですか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "ファイルの暗号化は必要ですか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "提出時にCSVの一覧表も添付しますか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "最終検査を行う人の氏名を教えてください",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "納品時にはZIPに圧縮しますか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    },
+    {
+      "question": "添付するCSVの文字コードに指定はありますか",
+      "raw": "{\"answer\": \"この FAQ には記載がありません。担当者に確認が必要です。\", \"needs_review\": true}",
+      "format_ok": true,
+      "format_reason": "",
+      "content_ok": true,
+      "both_ok": true,
+      "gold_needs_review": true
+    }
+  ]
+}

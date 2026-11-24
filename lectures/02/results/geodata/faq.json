@@ -1,0 +1,7 @@
+{
+  "crs": "使用する座標系は EPSG:6677 です。",
+  "format": "ベクターデータは GeoPackage（.gpkg）形式で提出します。",
+  "filename": "ファイル名は 地域名_YYYYMMDD.gpkg とします。",
+  "destination": "完成データは deliverables フォルダーに保存します。",
+  "checks": "提出前に件数・座標系・重複の有無を確認します。"
+}

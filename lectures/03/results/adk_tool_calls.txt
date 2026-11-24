@@ -1,0 +1,22 @@
+セッション内のイベント数: 8
+
+[Event 2] ツール呼び出し
+  名前: search_glossary
+  引数: {"query": "LoRA"}
+
+[Event 2] ツール呼び出し
+  名前: search_glossary
+  引数: {"query": "QLoRA"}
+[Event 3] ツール実行結果
+  名前: search_glossary
+[Event 3] ツール実行結果
+  名前: search_glossary
+
+[Event 6] ツール呼び出し
+  名前: make_quiz
+  引数: {"lecture": 2}
+[Event 7] ツール実行結果
+  名前: make_quiz
+
+ツール呼び出し合計: 3
+ツール実行結果合計: 3

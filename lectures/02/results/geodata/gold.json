@@ -1,0 +1,137 @@
+{
+  "採用するEPSGコードは何ですか": {
+    "needs_review": false,
+    "must_include": [
+      "EPSG:6677"
+    ]
+  },
+  "このプロジェクトで使う座標参照系のコードを教えてください": {
+    "needs_review": false,
+    "must_include": [
+      "EPSG:6677"
+    ]
+  },
+  "作業用データのCRSは何にそろえますか": {
+    "needs_review": false,
+    "must_include": [
+      "EPSG:6677"
+    ]
+  },
+  "ベクターデータは何形式にすればよいですか": {
+    "needs_review": false,
+    "must_include": [
+      "GeoPackage",
+      ".gpkg"
+    ]
+  },
+  "ベクターの提出に指定されている拡張子と形式名は何ですか": {
+    "needs_review": false,
+    "must_include": [
+      "GeoPackage",
+      ".gpkg"
+    ]
+  },
+  "完成したベクターデータはどの形式で渡しますか": {
+    "needs_review": false,
+    "must_include": [
+      "GeoPackage",
+      ".gpkg"
+    ]
+  },
+  "ファイル名の書式を教えてください": {
+    "needs_review": false,
+    "must_include": [
+      "地域名_YYYYMMDD.gpkg"
+    ]
+  },
+  "成果ファイルの名称はどんなパターンにしますか": {
+    "needs_review": false,
+    "must_include": [
+      "地域名_YYYYMMDD.gpkg"
+    ]
+  },
+  "地域名と日付を使うファイル名の規則を教えてください": {
+    "needs_review": false,
+    "must_include": [
+      "地域名_YYYYMMDD.gpkg"
+    ]
+  },
+  "完成品を置くフォルダー名は何ですか": {
+    "needs_review": false,
+    "must_include": [
+      "deliverables"
+    ]
+  },
+  "成果データを格納するフォルダー名を教えてください": {
+    "needs_review": false,
+    "must_include": [
+      "deliverables"
+    ]
+  },
+  "完成したファイルの保存場所はどこですか": {
+    "needs_review": false,
+    "must_include": [
+      "deliverables"
+    ]
+  },
+  "提出する前の確認事項は何ですか": {
+    "needs_review": false,
+    "must_include": [
+      "件数",
+      "座標系",
+      "重複"
+    ]
+  },
+  "納品直前に点検すべき三つの内容を教えてください": {
+    "needs_review": false,
+    "must_include": [
+      "件数",
+      "座標系",
+      "重複"
+    ]
+  },
+  "成果データのチェックでは何を見る必要がありますか": {
+    "needs_review": false,
+    "must_include": [
+      "件数",
+      "座標系",
+      "重複"
+    ]
+  },
+  "データの更新頻度はどのくらいですか": {
+    "needs_review": true,
+    "must_include": [
+      "確認"
+    ]
+  },
+  "ファイルの暗号化は必要ですか": {
+    "needs_review": true,
+    "must_include": [
+      "確認"
+    ]
+  },
+  "提出時にCSVの一覧表も添付しますか": {
+    "needs_review": true,
+    "must_include": [
+      "確認"
+    ]
+  },
+  "最終検査を行う人の氏名を教えてください": {
+    "needs_review": true,
+    "must_include": [
+      "確認"
+    ]
+  },
+  "納品時にはZIPに圧縮しますか": {
+    "needs_review": true,
+    "must_include": [
+      "確認"
+    ]
+  },
+  "添付するCSVの文字コードに指定はありますか": {
+    "needs_review": true,
+    "must_include": [
+      "確認"
+    ]
+  }
+}

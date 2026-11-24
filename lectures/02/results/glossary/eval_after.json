@@ -1,0 +1,164 @@
+{
+  "summary": {
+    "label": "after",
+    "n": 15,
+    "seconds": 49.5,
+    "direct_proxy_rate": 0.6,
+    "rephrased_proxy_rate": 0.0,
+    "out_of_glossary_proxy_rate": 0.0,
+    "all_proxy_rate": 0.2,
+    "known_review_rate": 0.0
+  },
+  "rows": [
+    {
+      "question": "用語『トークン』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "LLMがテキストを扱う最小単位。単語や文字ではなく、単語の英数値（例：「apple」は5トークン）で割る。トークン数を増やしすぎるとモデルの処理能力を消費し、削減するには分割を大きくする。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『教師ありファインチューニング（SFT）』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "入力と出力のペアでモデルを学習させる方法。質問の形式や返しの内容に強い。本講座の第2回演習では主に使う。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『PEFT』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "モデルの全パラメータを小さなセットのデータで学習させること。全パラメータを学習させるのは計算が重いため、一部分だけを学習させることで学習コストと計算量を大幅に減らせる。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『LoRA』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "低ランクアサインの学習法。重みを増やし、学習率を小さくする。学習するパラメータは、重みと低ランクアサインの和だけ。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『QLoRA』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "LLMがメモリ使用量に制限がある場合、学習した重みをより小さなメモリを持つモデルにコピーする技術。本講座では「LoRA」という手法で、重みを1つのベクトルにまとめることでメモリを節約できる。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "tokenとは、文章をどのような単位で扱う考え方ですか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "LLMが受け取る入力と、出力する結果を切り分ける単位。トークン数が多いほど、入力と出力の境界が明確になり、モデルの挙動やコスト、検索の精度に影響する。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "SFTでモデルに学ばせる際、どんな入力と正解の組を使いますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "教師の例（instruction + answer）のペア。例：「単語を日本語で説明してください」と答えて「単語の意味を日本語で説明してください」と返す。モデルはこのペアから、次の入力（次の質問）と、その質問に対する答えを予測する。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "PEFTはモデルのどの部分を学習して、計算資源を節約しますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "モデルの全パラメータを学習せず、特定の部分（低ランク）だけを学習する手法。全パラメータを学習する場合はGPUメモリや計算量に大きく依存し、低ランクを学習する場合はメモリや計算量に依存し、より少ない資源でモデルを学習できる。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "LoRAでは元の重みをどう扱い、更新分をどう表しますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "LoRAでは、学習した重みを0に直す（重みを消す）のではなく、元の重みをそのまま使う。更新分は、元の重みと新しい重みの差（低ランクのベクトル）を2つの低ランクベクトルで表す。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "QLoRAはLoRAにどのようなメモリ削減の工夫を加えますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "LoRAの重みを1つのメモリで持てないため、重みを小さな行列（例：16ビットの256×256）で表し、その行列を2つの小さな行列（LoRA weightとLoRA bias）に分けてメモリを節約する。本講座ではLoRA weightを16ビットで256×256の行列とみなし、2つの小さな行列をメモリで扱う。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『CS立体図』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "Pydantic AIで生成するモデルの出力。3Dの立体の座標（x, y, z）と、その周りの面（法線、法線方向）を2次元のリストで表す。Pydantic AIのPydantic AI SDKで読み込む。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『GeoPackage』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "Googleのオープンデータで公開される地理的データファイル。JSON形式で、ファイルのサイズは2MB以内。GeoJSONのJSONコードをPythonで読み込むだけで、GeoPackageとして保存できる。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『カルマンフィルタ』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "観測値と推測値の差（誤差）を最小限に抑え、予測を安定させるための学習・更新手法。観測値を基準に、モデルの出力を基準に、誤差を計算し、更新する。本講座の第2回演習では、GPSの位置を推測する。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『ブルーリーフ最適化』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "モデルの出力を、実際のデータと比べて誤差が小さくする手法。出力の形式や精度を気にせず、出力をそのまま使う。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『星砂アダプタ』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "LLMが特定のファイルやツールの呼び出しを、ファイルシステムやツールのAPIで表す状態を、実際の呼び出しをファイルやツールのAPIで表す状態に変換するモデル。ファイル操作やツール呼び出しの挙動を、APIの呼び出しで再現できる。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    }
+  ]
+}

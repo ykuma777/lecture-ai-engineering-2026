@@ -1,0 +1,16 @@
+{
+  "source_zip_sha256": "a8bd8199c5dda7c2676c9aa0025474fb915efe929a2a4d0e7e81b8de12bab710",
+  "source_notebook_sha256": "80e87a862f8682bfe19d89cbb971ae0dc9455655344cf69ccf7953a62ac8d98f",
+  "checks": {
+    "notebook_has_no_error_outputs": true,
+    "notebook_code_matches_prepared_notebook": true,
+    "notebook_result_matches_zip_result": true,
+    "input_jsonl_sha256_matches_result": true,
+    "all_116_records_match_course_script_generation": true,
+    "evaluation_15_question_texts_do_not_overlap_training_questions": true,
+    "all_45_saved_proxy_decisions_recomputed_and_match": true,
+    "all_summary_rates_recomputed_and_match": true
+  },
+  "execution_note": "学習は本人のColab実行。提出準備時にGPU学習は再実行していない。",
+  "metric_note": "重要語句と確認要求語の検出による代理指標。意味的な正しさは原文確認が必要。"
+}

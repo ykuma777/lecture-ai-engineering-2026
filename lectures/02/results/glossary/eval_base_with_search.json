@@ -1,0 +1,164 @@
+{
+  "summary": {
+    "label": "base_with_search",
+    "n": 15,
+    "seconds": 45.1,
+    "direct_proxy_rate": 0.8,
+    "rephrased_proxy_rate": 1.0,
+    "out_of_glossary_proxy_rate": 0.8,
+    "all_proxy_rate": 0.8666666666666667,
+    "known_review_rate": 0.0
+  },
+  "rows": [
+    {
+      "question": "用語『トークン』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "LLM（大規模言語モデル）がテキストを扱う最小単位です。\nAPI の料金、レート制限、コンテキストウィンドウの大きさは、多くの場合トークン数で数えます。\n日本語は英語より 1 文字あたりのトークン数が多くなりやすいです。",
+      "retrieved_reference": "[{\"term\": \"トークン\", \"lecture\": 1, \"definition\": \"LLMがテキストを扱う最小単位。単語や文字の断片に分割される。APIの料金、レート制限、コンテキストウィンドウの大きさは、多くの場合トークン数で数える。日本語は英語より1文字あたりのトークン数が多くなりやすい。\", \"related\": [\"context-window\", \"rate-limit\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『教師ありファインチューニング（SFT）』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "教師ありファインチューニング（SFT）は、**「質問と模範回答のペア（入力・出力）を使ってモデルを追加学習する」**という方法です。\n\nこの手法は、モデルが指示に従う振る舞いを身につけさせる代表的な手法であり、学習の方向性が明確な「指示」に基づいています。",
+      "retrieved_reference": "[{\"term\": \"ファインチューニング\", \"lecture\": 2, \"definition\": \"事前学習済みモデルを、特定のタスクや形式に合ったデータで追加学習させること。出力の形式や口調、特定ドメインの振る舞いを身につけさせるのに向く。最新の事実を覚えさせる用途には、ツールやRAGで外部データを参照させるほうが向くことが多い。\", \"related\": [\"sft\", \"peft\", \"lora\"]}, {\"term\": \"教師ありファインチューニング（SFT）\", \"lecture\": 2, \"definition\": \"入力と望ましい出力のペア（例：質問と模範回答）を使ってモデルを追加学習させる方法。指示に従う振る舞いを身につけさせる代表的な手法。\", \"related\": [\"fine-tuning\", \"lora\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『PEFT』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "PEFT（Parameter-Efficient Fine-Tuning）は、モデルの**全パラメータを学習するのではなく、ごく一部や追加した小さなパラメータだけを学習する手法**の総称です。\n\nこの手法は、必要な**GPU メモリと保存容量を大きく減らす**ため、学習速度を向上させます。LoRA（Low-Rank Adaptation）が代表的な例です。",
+      "retrieved_reference": "[{\"term\": \"PEFT\", \"lecture\": 2, \"definition\": \"モデルの全パラメータではなく、ごく一部や追加した小さなパラメータだけを学習する手法の総称。必要なGPUメモリと保存容量を大きく減らせる。LoRAが代表例。\", \"related\": [\"lora\", \"fine-tuning\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『LoRA』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "LoRA（Low-Rank Adaptation）は、学習済みの重み（パラメータ）を固定し、学習分を「低ランク行列」で補完して学習する手法です。\n\nこの手法は、学習するパラメータが少なく、学習結果（アダプタ）も小さく保存できるため、効率的に学習できます。",
+      "retrieved_reference": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『QLoRA』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "QLoRA は、ベースモデルの重みを 4 ビットなどの量子化（低ランク）してメモリを節約し、LoRA によって学習する手法です。",
+      "retrieved_reference": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}, {\"term\": \"QLoRA\", \"lecture\": 2, \"definition\": \"ベースモデルの重みを4ビットなどに量子化してメモリを節約したうえで、LoRAで学習する手法。より大きなモデルを小さなGPUで扱える。本講座の第2回演習ではモデルがGPUに載るためLoRAで学習し、4ビットで読み込んだときのメモリと出力の違いを発展で比べる。\", \"related\": [\"lora\", \"quantization\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "tokenとは、文章をどのような単位で扱う考え方ですか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "トークンは、LLM（大規模言語モデル）がテキストを扱う最小単位です。\nこれは、単語や文字の断片に分割されたものです。\nAPI の料金、レート制限、コンテキストウィンドウの大きさは、多くの場合トークン数で数えます。\n日本語は英語より 1 文字あたりのトークン数が多くなりやすいです。",
+      "retrieved_reference": "[{\"term\": \"トークン\", \"lecture\": 1, \"definition\": \"LLMがテキストを扱う最小単位。単語や文字の断片に分割される。APIの料金、レート制限、コンテキストウィンドウの大きさは、多くの場合トークン数で数える。日本語は英語より1文字あたりのトークン数が多くなりやすい。\", \"related\": [\"context-window\", \"rate-limit\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "SFTでモデルに学ばせる際、どんな入力と正解の組を使いますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "SFT（教師ありファインチューニング）でモデルに学ばせる際、入力と正解の組は以下の通りです。\n\n*   **入力**: 質問（または問題文）\n*   **正解**: 模範回答（または正解の答え）",
+      "retrieved_reference": "[{\"term\": \"教師ありファインチューニング（SFT）\", \"lecture\": 2, \"definition\": \"入力と望ましい出力のペア（例：質問と模範回答）を使ってモデルを追加学習させる方法。指示に従う振る舞いを身につけさせる代表的な手法。\", \"related\": [\"fine-tuning\", \"lora\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "PEFTはモデルのどの部分を学習して、計算資源を節約しますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "PEFT（Parameter-Efficient Fine-Tuning）は、モデルの**全パラメータ**ではなく、ごく一部や追加した小さなパラメータだけを学習する手法です。\n\n計算資源を節約する主な理由は、GPU メモリと保存容量を大きく減らすためです。",
+      "retrieved_reference": "[{\"term\": \"PEFT\", \"lecture\": 2, \"definition\": \"モデルの全パラメータではなく、ごく一部や追加した小さなパラメータだけを学習する手法の総称。必要なGPUメモリと保存容量を大きく減らせる。LoRAが代表例。\", \"related\": [\"lora\", \"fine-tuning\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "LoRAでは元の重みをどう扱い、更新分をどう表しますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "LoRA では、元の重みを**固定**にします。\n学習するパラメータは、元の重みと**更新分**の積（低ランク行列）で表し、その小さな行列だけを学習します。",
+      "retrieved_reference": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "QLoRAはLoRAにどのようなメモリ削減の工夫を加えますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "QLoRA は LoRA の重みを **4 ビット** に量子化してメモリを節約し、より大きなモデルを小さな GPU で扱える工夫です。",
+      "retrieved_reference": "[{\"term\": \"LoRA\", \"lecture\": 2, \"definition\": \"事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列）で表し、その小さな行列だけを学習するPEFT手法。学習するパラメータが少なく、学習結果（アダプタ）も小さいファイルで保存できる。本講座の第2回演習ではLoRAを扱う。\", \"related\": [\"peft\", \"lora-rank\", \"qlora\"]}, {\"term\": \"QLoRA\", \"lecture\": 2, \"definition\": \"ベースモデルの重みを4ビットなどに量子化してメモリを節約したうえで、LoRAで学習する手法。より大きなモデルを小さなGPUで扱える。本講座の第2回演習ではモデルがGPUに載るためLoRAで学習し、4ビットで読み込んだときのメモリと出力の違いを発展で比べる。\", \"related\": [\"lora\", \"quantization\"]}]",
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『CS立体図』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "確認が必要です。",
+      "retrieved_reference": "用語集に「用語『CS立体図』の意味を教えてください」は見つかりませんでした。",
+      "review_signal": true,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『GeoPackage』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "GeoPackage は、地理情報システム（GIS）における「ファイル形式」としての**「ファイル名」**です。\n\nこのファイルは、地理空間データ（点、線、面、多面体など）を**JSON 形式**で保存したものです。\n*   **主な用途**: 地理情報システム（GIS）や地理情報科学（GIScience）において、データファイルとして扱う際に使用されます。\n*   **特徴**: 従来の GeoJSON ではなく、ファイル名が GeoPackage という名前で保存されるため、ファイル名自体がデータの内容を指すため、**「ファイル名」としての GeoPackage という名称**が一般的です。\n\n※用語集には「ファイル名」としての GeoPackage という用語は記載されていませんが、",
+      "retrieved_reference": "用語集に「用語『GeoPackage』の意味を教えてください」は見つかりませんでした。",
+      "review_signal": true,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『カルマンフィルタ』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "「カルマンフィルタ」は、**「カルマン法」**（またはカルマン・リソフ法）の略称です。\n\nこの方法は、**「観測値と推測値の差（誤差）」**を考慮して、**「推測値の誤差を最小化」**する最適化アルゴリズムです。\n\n*   **観測値**: 実際のデータ（例：温度、速度など）\n*   **推測値**: 理論上の予測値\n*   **誤差**: 観測値と推測値の差\n\nこのアルゴリズムは、**「推測値の誤差を最小化」**することで、推測値の精度を高めることができます。",
+      "retrieved_reference": "用語集に「用語『カルマンフィルタ』の意味を教えてください」は見つかりませんでした。",
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『ブルーリーフ最適化』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "確認が必要です。",
+      "retrieved_reference": "用語集に「用語『ブルーリーフ最適化』の意味を教えてください」は見つかりませんでした。",
+      "review_signal": true,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "用語『星砂アダプタ』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "確認が必要です。",
+      "retrieved_reference": "用語集に「用語『星砂アダプタ』の意味を教えてください」は見つかりませんでした。",
+      "review_signal": true,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": true
+    }
+  ]
+}

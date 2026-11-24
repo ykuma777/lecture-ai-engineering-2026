@@ -1,0 +1,164 @@
+{
+  "summary": {
+    "label": "before",
+    "n": 15,
+    "seconds": 102.6,
+    "direct_proxy_rate": 0.0,
+    "rephrased_proxy_rate": 0.2,
+    "out_of_glossary_proxy_rate": 0.0,
+    "all_proxy_rate": 0.06666666666666667,
+    "known_review_rate": 0.0
+  },
+  "rows": [
+    {
+      "question": "用語『トークン』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "トークンは、言語の構造や表現において「単位」として扱われる基本の言葉です。\n\n語句を構成する基本単位として、**「単語（Word）」**と**「文法（Grammar）」**を区別します。\n*   **単語**は、語句の基本単位であり、語句の構成要素として扱われます。\n*   **文法**は、単語をどのように組み合わせるかを規定する規則やルールです。\n\nしたがって、トークン（単語）は、文法によって定義された基本の言葉単位であり、その基本単位として扱われます。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『教師ありファインチューニング（SFT）』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "教師ありファインチューニング（SFT）は、**「教師（データ）から学習（モデル）を学習させる」**という概念を指します。\n\n具体的には、教師のデータ（例：「猫は白い」「猫は黒い」など）を学習する際に、学習モデル（ニューラルネットワークなど）が「教師のデータ」を参照して、**「教師のデータから学習した知識」**を学習するプロセスです。\n\nこのプロセスは、**教師なし学習（SFT）とは対照的に、教師のデータが学習対象（入力）として直接入力されるため、学習がより確実で安定する**という特徴を持っています。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『PEFT』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "PEFT（Parameter-Efficient Fine-Tuning）は、モデルの学習を**パラメータ効率**で加速する手法です。\n\nこの用語は、以下の 3 つの要素を組み合わせて使われます：\n1.  **Parameter**：モデルの**パラメータ**（学習対象の知識や特徴）\n2.  **Efficient**：効率的（学習速度を上げるため）\n3.  **Fine-Tuning**：**タスク**（学習目的）に合わせて調整する\n\nつまり、モデルの知識を学習する際に、**「パラメータを減らす（効率化）」**ことで、学習速度を上げ、より多くのデータや計算時間を節約できることを指します。\n\n※用語集に記載されていない場合は、推測",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『LoRA』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "LoRA（Low-Rank Adaptation）は、大規模言語モデル（LLM）の**パラメータを「低秩」に削減し、より軽量かつ高速に学習させる技術**です。\n\n主な特徴は以下の通りです：\n\n*   **低秩性（Low-Rankness）**: モデルのパラメータを「低秩」に分解し、その分解された部分だけを学習対象にします。\n*   **学習効率**: 学習するパラメータの数を大幅に減らし、計算コストを削減します。\n*   **可視化**: 学習したパラメータの構造や変化を、モデルの出力結果（例：生成された文章の文脈や単語の分布）から**可視化",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『QLoRA』の意味を教えてください",
+      "category": "direct",
+      "in_glossary": true,
+      "raw": "QLoRA は、**「Quantum Large Language Model（量子大規模言語モデル）」**の略です。\n\nこの用語は、主に**Google**が開発した、大規模言語モデル（LLM）の一種です。その特徴は以下の通りです。\n\n*   **量子計算の基盤**: 従来の機械学習モデルでは計算コストが非常に高く、特に大規模モデルでは計算量が膨大になります。QLoRA は、量子計算の原理（量子ビット、量子重ね合わせなど）を基盤に設計されたモデルです。\n*   **計算効率**: 従来のモデルでは計算量が膨大になりすぎて、処理速度が非常に遅く、実用上では使用できません。QLoRA は、量子計算の効率化により、**",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "tokenとは、文章をどのような単位で扱う考え方ですか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "文章を**文字列（テキスト）**単位で扱う考え方です。\n\n具体的には、テキストファイルやテキストエディタなどの文脈で、文字列を扱うことを指します。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "SFTでモデルに学ばせる際、どんな入力と正解の組を使いますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "SFT（ supervised fine-tuning）でモデルに学習させる際、入力と正解の組は以下の通りです。\n\n*   **入力 (Input):** 学習対象のテキストやコード、画像などのデータ。\n*   **正解 (Label):** 入力に対して正しい答え（または正解のテキスト、画像など）を指定する。\n\nこの組み合わせを「学習データ」として、モデルを訓練します。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "PEFTはモデルのどの部分を学習して、計算資源を節約しますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "PEFT（Parameter-Efficient Fine-Tuning）は、モデルの**パラメータ（weights）を学習**し、計算資源を節約します。\n\n特に、モデルの**多数のパラメータを学習するのではなく、少数のパラメータ（特にロジックや特徴的な部分）を学習**することで、学習コストを大幅に削減できます。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": true,
+      "task_proxy_ok": true
+    },
+    {
+      "question": "LoRAでは元の重みをどう扱い、更新分をどう表しますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "LoRA（低精度リファインリング）では、元の重みを**そのまま維持**し、更新分を**ゼロ**にします。\n\nつまり、LoRA 学習は「元のモデルをそのまま維持しつつ、必要な部分だけを修正する」アプローチであり、元の重みはそのまま残ります。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "QLoRAはLoRAにどのようなメモリ削減の工夫を加えますか",
+      "category": "rephrased",
+      "in_glossary": true,
+      "raw": "QLoRA は、LoRA のメモリ削減に以下の工夫を加えています。\n\n*   **パラメータの削減**: 学習率を 100 倍に設定し、計算量を抑えるため、LoRA のパラメータ数を大幅に減らします。\n*   **メモリ効率の向上**: 計算量を抑えつつ、メモリ消費も削減することで、より多くのモデルを学習できるため、メモリ効率を向上させます。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": false,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『CS立体図』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "「CS 立体図」は、**「Computer Science（コンピュータ科学）」**の略です。\n\nこの用語は、主に**「コンピュータグラフィックス（CG）」**や**「ゲーム開発」**において、**3D 立体図（3D 模型）**を扱う分野を指します。\n\n具体的には、以下のことを意味します：\n*   **3D 模型の作成・管理**：ゲームやアニメーションにおいて、現実世界から生成された物体（キャラクター、建物、植物など）を 3D 形式で表現し、ゲームや映像に組み込む作業。\n*   **技術的定義**：CS（Computer Science）という学術用語として、3D 建模やゲーム開発の技術分野を指すことが多いです。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『GeoPackage』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "GeoPackage は、地理情報システム（GIS）における**「ファイルの形式」**です。\n\nこのファイルは、地理空間データ（地図、画像、地形など）を**「JSON 形式」**で表現し、そのデータを**「GeoJSON」**という標準的なデータ構造で定義しています。\n\n主な特徴は以下の通りです：\n*   **JSON 形式**: 標準的なデータ形式で、読み書きが容易です。\n*   **GeoJSON 構造**: 地理空間データ（経度、緯度、高さなど）を定義した標準的なデータ構造です。\n*   **拡張性**: 既存の GIS システム（ArcGIS、QGIS、Mapboxなど）に直接読み書きできるため、データ管理が容易です",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『カルマンフィルタ』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "カルマンフィルタ（Kalman Filter）は、**「観測値から状態変数の誤差を補正し、状態変数の確率分布を推定する」ための統計的推論手法**です。\n\nこの手法は、以下の 3 つの要素で構成されています：\n1.  **状態変数**：システムの状態（例：位置、速度、温度など）\n2.  **観測値**：システムが実際に測定したデータ\n3.  **誤差**：観測値と状態変数の差\n\nこのフィルタは、**「観測値の誤差を最小化」**することを目的として設計されています。つまり、システムの状態を正確に推定するために、観測値の誤差を補",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『ブルーリーフ最適化』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "ブルーリーフ最適化とは、**「ブルーリーフ（ブルーカラー・ブルーカラーリング）の表示を最適化し、視覚的に最も効果的に表示できる色やパターンを選択・設定するプロセス」**を指します。\n\n具体的には、以下の点を考慮して色やパターンを調整することで、読者や視聴者の注意力を集中させ、情報の伝達を最大化するものです。\n\n*   **視覚的効果の最大化**: 色やパターンが目に触れる瞬間に最も印象に残るよう、最適な色合いや形状を決定します。\n*   **情報の可読性向上**: 文字や画像の配置や色使いが、読みやすさを高めるため、情報の伝達をスムーズにします。\n*   **ブランドイメージの塑造",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    },
+    {
+      "question": "用語『星砂アダプタ』の意味を教えてください",
+      "category": "out_of_glossary",
+      "in_glossary": false,
+      "raw": "星砂アダプタは、**「星砂（星砂）とアダプタ（接続部品）」の合体**です。\n\nこの用語は、**「星砂」**という名称ではなく、**「アダプタ」**という部品を指すためです。\n\n*   **星砂**：アダプタの名称ではなく、その部品が「星砂」と呼ばれるという**名称の誤用**です。\n*   **アダプタ**：接続する部品（例：ケーブル、アダプタ、端子）です。\n\nしたがって、星砂アダプタは「アダプタ」という名称で、その名称に「星砂」が含まれているという誤解を招く用語です。",
+      "retrieved_reference": null,
+      "review_signal": false,
+      "definition_keywords_ok": null,
+      "task_proxy_ok": false
+    }
+  ]
+}

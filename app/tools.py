@@ -6,6 +6,8 @@
 
 import json
 import random
+from datetime import datetime, timezone
+from uuid import uuid4
 from functools import cache
 from pathlib import Path
 
@@ -157,3 +159,29 @@ def make_quiz(lecture: int) -> str:
         },
         ensure_ascii=False,
     )
+
+
+def save_learning_log(topic: str, content: str) -> str:
+    """学習した内容をMarkdownファイルとして保存する。
+
+    ユーザーが学習内容や復習メモを保存するよう依頼したときに使う。
+    topicは学習テーマ、contentは保存する学習内容。
+    保存前にユーザーの承認が必要。
+    """
+    if not topic.strip() or not content.strip():
+        return "学習テーマと内容は空にできません。"
+
+    root = Path(__file__).resolve().parent.parent
+    log_dir = root / "learning_log"
+    log_dir.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now(timezone.utc).strftime(
+        "%Y%m%dT%H%M%S%fZ"
+    )
+    filename = f"{timestamp}_{uuid4().hex[:8]}.md"
+    path = log_dir / filename
+
+    text = f"# {topic.strip()}\n\n{content.strip()}\n"
+    path.write_text(text, encoding="utf-8")
+
+    return f"保存しました: {path.relative_to(root)}"
