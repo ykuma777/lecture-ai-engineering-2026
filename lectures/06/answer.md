@@ -25,7 +25,7 @@
 
 ## 宿題
 
-- 取り組んだレベル：実装
+- 取り組んだレベル：基礎・実装・発展
 
 - やったこと：
   - 第3回のlec03ブランチで作成したmake_quizをapp/tools.pyに移植した。
@@ -49,3 +49,68 @@
   - ツール側で入力を検証し、エラー時に明確な情報を返すことが重要である。
   - 今回の異常入力では例外を発生させず、説明文を正常な返り値として返した。
   - 今後は入力チェックをより厳密にし、LLMによる回答の正確性も評価したい。
+
+### 基礎課題（追加検証）：get_lecture_summaryのMCP公開
+
+- `app/mcp_server.py` に `server.tool()(tools.get_lecture_summary)` を登録した。
+- MCPツール一覧で `glossary_get_lecture_summary` が公開されていることを確認した。
+- `uv run python -m app.mcp_agent --trace "第2回では何を学びますか？"` を実行した。
+- `[tool call] glossary_get_lecture_summary({'lecture': 2})` を確認した。
+- `[tool return]` に第2回「ファインチューニングとLoRA」の講義要点が返った。
+- Geminiは取得内容を使い、日本語で第2回の学習内容を説明した。
+- 実行時のモデル応答は2回、入力6,108トークン、出力255トークンだった。
+
+#### 考察
+
+既存のPython関数をMCPサーバーに登録すると、
+エージェント本体を変更せずに新しいツールを利用できることを確認した。
+`--trace` により、LLMのツール選択、引数、実行結果を確認できた。
+
+### 発展課題（追加調査）：VS CodeのMCP設定
+
+- 調査日：2026年11月24日
+- 調査対象：VS CodeのMCP設定とAgent Host向け設定
+- 公式資料：https://code.visualstudio.com/docs/agents/reference/mcp-configuration
+
+#### 調べた設定方法
+
+1. 設定場所
+   - VS Codeのワークスペース設定：`.vscode/mcp.json`
+   - VS Codeのユーザー設定：ユーザープロファイル内の `mcp.json`
+   - Agent Hostが直接読み込む設定：ワークスペースの `.mcp.json`
+     または `~/.copilot/mcp-config.json`
+2. コマンドによる起動
+   - VS Codeでは `servers` 内に `type: "stdio"`、
+     `command`、`args` を指定する。
+3. URLによる接続
+   - `type: "http"` と `url` を指定する。
+4. 有効範囲
+   - ワークスペース設定はそのプロジェクト用。
+   - ユーザー設定は複数のワークスペースで利用できる。
+   - Agent Host向けの設定はVS Code標準の設定と保存場所が異なる。
+
+#### 演習の設定との比較
+
+演習の `app/mcp_servers.json` は、
+Python製エージェントが独自に読み込む設定ファイルであり、
+サーバー定義に `mcpServers` を使用する。
+
+一方、VS Codeの `.vscode/mcp.json` は、
+サーバー定義に `servers` を使用する。
+
+演習ではローカルサーバーを `command` と `args`、
+リモートサーバーを `url` で指定した。
+
+VS Codeではこれらに加えて、接続方式を表す
+`type: "stdio"` または `type: "http"` を明示する。
+
+#### 気づき・考察
+
+MCPはツールとの接続方式を共通化する仕組みだが、
+設定ファイルの保存場所やJSONの構造まで統一するものではない。
+
+同じMCPサーバーでも、利用するクライアントに応じた
+設定が必要になることを理解した。
+
+今回は公式ドキュメントを調査・比較した。
+VS Codeからの実際の接続試験は行っていない。
