@@ -129,8 +129,6 @@ def search_graph(query: str) -> str:
         return json.dumps({"error": str(e)}, ensure_ascii=False)
     except APIError as e:
         return json.dumps({"error": api_error_message(e.code)}, ensure_ascii=False)
-
-
 def make_quiz(lecture: int) -> str:
     """指定した回の用語から1つを選び、確認問題と答えを返す。
 
@@ -142,8 +140,15 @@ def make_quiz(lecture: int) -> str:
         if entry["lecture"] == lecture
     ]
 
+
     if not terms:
-        return f"第{lecture}回の用語がないため、確認問題を作成できません。"
+        available = sorted({entry["lecture"] for entry in load_glossary()})
+        available_text = "、".join(f"第{n}回" for n in available)
+        return (
+            f"第{lecture}回には確認問題用の用語が登録されていません。"
+            f"クイズを作れるのは {available_text} です。"
+            "その中から講義回を指定してください。"
+        )
 
     selected = random.choice(terms)
 
